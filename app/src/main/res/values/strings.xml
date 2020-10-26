@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KalkKolory</string>
+    <string name="title_appbar"> Mifflin - San Geor formula</string>
+    <string name="lorem">The Mifflin-Saint Geora Formula is one of the most recent calorie formulas for optimal weight loss or maintenance. It was introduced in 2005 and is increasingly replacing the classic Harris-Benedict formula.
+
+The Mifflin-Saint Geor formula, developed by a group of American dietitians under the leadership of Mifflin and Saint Geor doctors, exists in two versions - simplified and modified and gives the required amount of kilocalories (kcal) per day for each individual person.
+
+    You just need to enter your age, height and weight, as well as mark your gender and level of physical activity. Remember that this formula is only relevant for people between the ages of 13 and 80</string>
+</resources>
