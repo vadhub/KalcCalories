@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -66,6 +68,8 @@ public class NewsLentActivity extends AppCompatActivity {
                     adapter.setArticles(articles);
                     recyclerView.setAdapter(adapter);
 
+                    initListener();
+
                 }
 
             }
@@ -74,6 +78,22 @@ public class NewsLentActivity extends AppCompatActivity {
             public void onFailure(Call<News> call, Throwable t) {
                 Toast.makeText(NewsLentActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
                 return;
+            }
+        });
+    }
+
+    private void initListener(){
+        adapter.setOnItemClickListenerNews(new Adapter.OnItemClickListenerNews() {
+            @Override
+            public void onClickItem(View view, int position) {
+                Intent intent = new Intent(NewsLentActivity.this, NewsActivity.class);
+                Article article = articles.get(position);
+                intent.putExtra("url", article.getUrl());
+                intent.putExtra("urtImg", article.getUrlToImage());
+                intent.putExtra("title", article.getTitle());
+                intent.putExtra("content", article.getContent());
+
+                startActivity(intent);
             }
         });
     }
