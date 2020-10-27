@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KalkKolory">
         <activity android:name=".NewsLentActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".NewsActivity" />
         <activity android:name=".Informer" />
-        <activity android:name=".NewsActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

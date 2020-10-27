@@ -2,6 +2,7 @@ package com.vadim.kalkkolory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -14,13 +15,14 @@ public class NewsActivity extends AppCompatActivity {
 
     private ImageView mainimg;
     private TextView description;
-    private CollapsingToolbarLayout collapsingToolbarLayout;
+    private TextView title;
 
     private String url;
     private String urlToImg;
     private String getTitle;
     private String getDescription;
 
+    @SuppressLint("Range")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,8 @@ public class NewsActivity extends AppCompatActivity {
 
         mainimg = (ImageView) findViewById(R.id.app_bar_image);
         description = (TextView) findViewById(R.id.descriptionNews);
-        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar);
+
+        title = (TextView) findViewById(R.id.textTitle);
 
         Intent intent = getIntent();
 
@@ -38,7 +41,11 @@ public class NewsActivity extends AppCompatActivity {
         getDescription = intent.getStringExtra("content");
 
         Picasso.get().load(urlToImg).error(R.drawable.not_found).into(mainimg);
-        collapsingToolbarLayout.setTitle(getTitle);
+        if(getTitle!=null){
+            title.setText(getTitle);
+        }
+
+
         description.setText(getDescription);
 
     }
