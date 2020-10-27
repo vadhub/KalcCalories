@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vadim.kalkkolory">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KalkKolory">
-        <activity android:name=".NewsActivity"></activity>
-        <activity android:name=".NewsLentActivity" />
+        <activity android:name=".NewsLentActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Informer" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".NewsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

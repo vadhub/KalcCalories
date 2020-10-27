@@ -6,4 +6,7 @@
 The Mifflin-Saint Geor formula, developed by a group of American dietitians under the leadership of Mifflin and Saint Geor doctors, exists in two versions - simplified and modified and gives the required amount of kilocalories (kcal) per day for each individual person.
 
     You just need to enter your age, height and weight, as well as mark your gender and level of physical activity. Remember that this formula is only relevant for people between the ages of 13 and 80</string>
+    <string name="api_key">514fbafd2e864aa99c6c034edfee8799</string>
+    <string name="country">us</string>
+    <string name="category">sports</string>
 </resources>
