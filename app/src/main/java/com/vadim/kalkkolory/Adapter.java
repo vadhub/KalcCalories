@@ -45,20 +45,21 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        if(articles.get(position).getUrlToImage()!=null&&articles.get(position).getDescription()!=null){
-            Picasso.get().load(articles.get(position).getUrlToImage()).error(R.drawable.not_found).into(holder.imageMain);
+        if(articles.get(position).getUrlToImage()==null){
+            holder.imageMain.setImageResource(R.drawable.not_found);
+        }else
+        if(articles.get(position).getUrlToImage().isEmpty()){
+            holder.imageMain.setImageResource(R.drawable.not_found);
+        }else {
+            Picasso.get().load(articles.get(position).getUrlToImage()).into(holder.imageMain);
+        }
+
+        if(articles.get(position).getDescription()!=null&&articles.get(position).getTitle()!=null){
             holder.title.setText(articles.get(position).getTitle());
             holder.description.setText(articles.get(position).getDescription());
-        }else if(articles.get(position).getUrlToImage()==null){
+        }else if(articles.get(position).getTitle()!=null){
             holder.title.setText(articles.get(position).getTitle());
-            holder.description.setText(articles.get(position).getDescription());
-        }else if(articles.get(position).getDescription()==null){
-            Picasso.get().load(articles.get(position).getUrlToImage()).error(R.drawable.not_found).into(holder.imageMain);
-            holder.description.setText(articles.get(position).getDescription());
-        }else if(articles.get(position).getTitle()==null){
-            Picasso.get().load(articles.get(position).getUrlToImage()).error(R.drawable.not_found).into(holder.imageMain);
-            holder.title.setText(articles.get(position).getTitle());
-        }else if(articles.get(position).getTitle()==null&&articles.get(position).getUrlToImage()==null){
+        }else {
             holder.description.setText(articles.get(position).getDescription());
         }
 
