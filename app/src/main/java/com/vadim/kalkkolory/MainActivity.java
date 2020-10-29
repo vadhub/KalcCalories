@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText heightTxt;
     private EditText weightTxt;
     private EditText ageTxt;
-    private Button infoBtn;
     private TextView resultTxt;
+
+    private View itemMenuNews;
+    private View itemMenuInfo;
 
     private static final int CONST_W = 10;
     private static final double CONST_H = 6.25;
@@ -42,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        itemMenuNews = (View) findViewById(R.id.news);
+        itemMenuInfo = (View) findViewById(R.id.information);
+
+        itemMenuInfo.setOnClickListener(v -> toRefer(v));
+        itemMenuNews.setOnClickListener(v -> toNews(v));
+
         String[] spinnerElements = {"Minimum activity", "Average activity", "High activity"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerElements);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -52,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
         resultTxt = (TextView) findViewById(R.id.textResult);
 
-        infoBtn = (Button) findViewById(R.id.informatio);
 
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setAdapter(adapter);

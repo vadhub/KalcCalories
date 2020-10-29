@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,12 +30,21 @@ public class NewsLentActivity extends AppCompatActivity {
     private String category;
     private String country;
 
+    private View itemMenuMain;
+    private View itemMenuInfo;
+
     private static final String URL = "http://newsapi.org/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_lent);
+
+        itemMenuMain = (View) findViewById(R.id.news);
+        itemMenuInfo = (View) findViewById(R.id.information);
+
+        itemMenuInfo.setOnClickListener(v -> toRefer(v));
+        itemMenuMain.setOnClickListener(v -> toMain(v));
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
@@ -96,6 +106,16 @@ public class NewsLentActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void toRefer(View view) {
+        Intent intent = new Intent(this, Informer.class);
+        startActivity(intent);
+    }
+
+    public void toMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 }
