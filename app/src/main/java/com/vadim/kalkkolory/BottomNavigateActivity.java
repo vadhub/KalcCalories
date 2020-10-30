@@ -10,9 +10,11 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class BottomNavigateActivity extends AppCompatActivity {
+public class BottomNavigateActivity extends AppCompatActivity implements NewsLentActivity.FragmentNewsLentListener {
 
     private BottomNavigationView navigationView;
+
+    private NewsActivity newsActivity = new NewsActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,4 +45,9 @@ public class BottomNavigateActivity extends AppCompatActivity {
             return true;
         }
     };
+
+    @Override
+    public void onInput(CharSequence charSequence) {
+        newsActivity.updateText(charSequence);
+    }
 }

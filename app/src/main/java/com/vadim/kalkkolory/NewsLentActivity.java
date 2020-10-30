@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -35,6 +36,8 @@ public class NewsLentActivity extends Fragment {
     private String apiKey;
     private String category;
     private String country;
+
+    private FragmentNewsLentListener listener;
 
 
     private static final String URL = "http://newsapi.org/";
@@ -94,21 +97,41 @@ public class NewsLentActivity extends Fragment {
         });
     }
 
+    interface FragmentNewsLentListener{
+        void onInput(CharSequence charSequence);
+    }
+
     private void initListener(){
         adapter.setOnItemClickListenerNews(new Adapter.OnItemClickListenerNews() {
             @Override
             public void onClickItem(View view, int position) {
-                Intent intent = new Intent(getContext(), NewsActivity.class);
-                Article article = articles.get(position);
-                intent.putExtra("url", article.getUrl());
-                intent.putExtra("urtImg", article.getUrlToImage());
-                intent.putExtra("title", article.getTitle());
-                intent.putExtra("content", article.getContent());
 
-                startActivity(intent);
+                Article article = articles.get(position);
+                CharSequence input =  article.getTitle();
+                listener.onInput(input);
+//                intent.putExtra("url", article.getUrl());
+//                intent.putExtra("urtImg", article.getUrlToImage());
+//                intent.putExtra("title",);
+//                intent.putExtra("content", article.getContent());
+//
+//                startActivity(intent);
             }
         });
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof FragmentNewsLentListener){
+            listener = (FragmentNewsLentListener) context;
+        }else{
+            throw new RuntimeException(context.toString() + " must implement NewsLentActivity");
+        }
+    }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
 }

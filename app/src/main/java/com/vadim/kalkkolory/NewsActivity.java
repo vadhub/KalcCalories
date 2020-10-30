@@ -1,80 +1,49 @@
 package com.vadim.kalkkolory;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.squareup.picasso.Picasso;
 
-public class NewsActivity extends FragmentActivity {
+public class NewsActivity extends Fragment {
 
     private ImageView mainimg;
     private TextView description;
     private TextView title;
 
-    private View itemMenuNews;
-    private View itemMenuInfo;
-    private View itemMenuMain;
-
-    private String url;
-    private String urlToImg;
-    private String getTitle;
-    private String getDescription;
-
-    @SuppressLint("Range")
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_news, container, false);
 
-        itemMenuNews = (View) findViewById(R.id.news);
-        itemMenuInfo = (View) findViewById(R.id.information);
-        itemMenuMain = (View) findViewById(R.id.calculate);
+        title = (TextView) v.findViewById(R.id.textTitle);
+        description = (TextView) v.findViewById(R.id.descriptionNews);
+        mainimg = (ImageView) v.findViewById(R.id.app_bar_image);
 
-        mainimg = (ImageView) findViewById(R.id.app_bar_image);
-        description = (TextView) findViewById(R.id.descriptionNews);
+//        Picasso.get().load(urlToImg).error(R.drawable.not_found).into(mainimg);
+//        description.setText(getDescription);
 
-        itemMenuInfo.setOnClickListener(v -> toRefer(v));
-        itemMenuMain.setOnClickListener(v -> toMain(v));
-        itemMenuNews.setOnClickListener(v -> toNews(v));
+        return v;
+    }
 
-        title = (TextView) findViewById(R.id.textTitle);
-
-        Intent intent = getIntent();
-
-        url = intent.getStringExtra("url");
-        urlToImg = intent.getStringExtra("urtImg");
-        getTitle = intent.getStringExtra("title");
-        getDescription = intent.getStringExtra("content");
-
-        Picasso.get().load(urlToImg).error(R.drawable.not_found).into(mainimg);
-        if(getTitle!=null){
-            title.setText(getTitle);
+    public void updateText(CharSequence newText){
+        if(newText!=null){
+            title.setText(newText);
         }
 
-        description.setText(getDescription);
-
     }
 
-    private void toNews(View v) {
-        Intent intent = new Intent(this, NewsLentActivity.class);
-        startActivity(intent);
-    }
-
-    public void toRefer(View view) {
-        Intent intent = new Intent(this, Informer.class);
-        startActivity(intent);
-    }
-
-    public void toMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 }
