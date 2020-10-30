@@ -11,11 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KalkKolory">
-        <activity android:name=".BottomNavigateActivity"></activity>
-        <activity android:name=".NewsLentActivity" />
-        <activity android:name=".NewsActivity" />
-        <activity android:name=".Informer" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".BottomNavigateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

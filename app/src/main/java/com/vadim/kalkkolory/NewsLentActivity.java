@@ -1,6 +1,9 @@
 package com.vadim.kalkkolory;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -21,7 +26,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class NewsLentActivity extends FragmentActivity {
+public class NewsLentActivity extends Fragment {
 
     private RecyclerView recyclerView;
     private Adapter adapter;
@@ -31,25 +36,18 @@ public class NewsLentActivity extends FragmentActivity {
     private String category;
     private String country;
 
-    private View itemMenuMain;
-    private View itemMenuInfo;
 
     private static final String URL = "http://newsapi.org/";
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_lent);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_news_lent, container, false);
 
-        itemMenuMain = (View) findViewById(R.id.news);
-        itemMenuInfo = (View) findViewById(R.id.information);
 
-        itemMenuInfo.setOnClickListener(v -> toRefer(v));
-        itemMenuMain.setOnClickListener(v -> toMain(v));
+        recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler);
-
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(getContext());
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -60,7 +58,10 @@ public class NewsLentActivity extends FragmentActivity {
 
         getPosts();
 
+        return v;
     }
+
+
 
     private void getPosts(){
         Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(URL).build();
@@ -87,7 +88,7 @@ public class NewsLentActivity extends FragmentActivity {
 
             @Override
             public void onFailure(Call<News> call, Throwable t) {
-                Toast.makeText(NewsLentActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),t.getMessage(), Toast.LENGTH_SHORT).show();
                 return;
             }
         });
@@ -97,7 +98,7 @@ public class NewsLentActivity extends FragmentActivity {
         adapter.setOnItemClickListenerNews(new Adapter.OnItemClickListenerNews() {
             @Override
             public void onClickItem(View view, int position) {
-                Intent intent = new Intent(NewsLentActivity.this, NewsActivity.class);
+                Intent intent = new Intent(getContext(), NewsActivity.class);
                 Article article = articles.get(position);
                 intent.putExtra("url", article.getUrl());
                 intent.putExtra("urtImg", article.getUrlToImage());
@@ -109,14 +110,5 @@ public class NewsLentActivity extends FragmentActivity {
         });
     }
 
-    public void toRefer(View view) {
-        Intent intent = new Intent(this, Informer.class);
-        startActivity(intent);
-    }
-
-    public void toMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 
 }

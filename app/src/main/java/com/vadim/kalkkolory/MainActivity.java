@@ -23,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.R.layout.simple_spinner_item;
+
 public class MainActivity extends Fragment {
 
 
@@ -31,9 +33,6 @@ public class MainActivity extends Fragment {
     private EditText weightTxt;
     private EditText ageTxt;
     private TextView resultTxt;
-
-    private View itemMenuNews;
-    private View itemMenuInfo;
 
     private static final int CONST_W = 10;
     private static final double CONST_H = 6.25;
@@ -52,26 +51,21 @@ public class MainActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_main, container, false);
-
-        itemMenuNews = (View) findViewById(R.id.news);
-        itemMenuInfo = (View) findViewById(R.id.information);
-
-        itemMenuInfo.setOnClickListener(v -> toRefer(v));
-        itemMenuNews.setOnClickListener(v -> toNews(v));
+        View v =  inflater.inflate(R.layout.activity_main, container, false);
 
         String[] spinnerElements = {"Minimum activity", "Average activity", "High activity"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerElements);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext() ,simple_spinner_item, spinnerElements);
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        heightTxt = (EditText) findViewById(R.id.editTextHeight);
-        weightTxt = (EditText) findViewById(R.id.editTextWeight);
-        ageTxt = (EditText) findViewById(R.id.editTextAge);
+        heightTxt = (EditText) v.findViewById(R.id.editTextHeight);
+        weightTxt = (EditText) v.findViewById(R.id.editTextWeight);
+        ageTxt = (EditText) v.findViewById(R.id.editTextAge);
 
-        resultTxt = (TextView) findViewById(R.id.textResult);
+        resultTxt = (TextView) v.findViewById(R.id.textResult);
 
 
-        spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) v.findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
 
         spinner.setPrompt("Physical activity");
@@ -79,7 +73,7 @@ public class MainActivity extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), "Position = " + spinnerElements[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "Position = " + spinnerElements[position], Toast.LENGTH_SHORT).show();
                 positionElemet = position;
             }
 
@@ -88,6 +82,7 @@ public class MainActivity extends Fragment {
 
             }
         });
+        return v;
     }
 
     public void calculation(View view) {
@@ -109,7 +104,7 @@ public class MainActivity extends Fragment {
         }
         resultTxt.setText(String.valueOf(Math.round(result)));
         }else{
-            Toast.makeText(this, "Enter data", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Enter data", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -126,15 +121,5 @@ public class MainActivity extends Fragment {
                     break;
         }
 
-    }
-
-    public void toRefer(View view) {
-        Intent intent = new Intent(this, Informer.class);
-        startActivity(intent);
-    }
-
-    public void toNews(View view) {
-        Intent intent = new Intent(this, NewsLentActivity.class);
-        startActivity(intent);
     }
 }
