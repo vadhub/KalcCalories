@@ -1,6 +1,7 @@
 package com.vadim.kalkkolory;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.squareup.picasso.Picasso;
 
-public class NewsActivity extends AppCompatActivity {
+public class NewsActivity extends FragmentActivity {
 
     private ImageView mainimg;
     private TextView description;

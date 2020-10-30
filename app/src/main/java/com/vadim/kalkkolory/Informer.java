@@ -1,6 +1,7 @@
 package com.vadim.kalkkolory;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -12,7 +13,7 @@ import android.widget.ImageView;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.squareup.picasso.Picasso;
 
-public class Informer extends AppCompatActivity {
+public class Informer extends FragmentActivity {
 
     private View itemMenuNews;
     private View itemMenuMain;

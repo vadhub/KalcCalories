@@ -1,22 +1,29 @@
 package com.vadim.kalkkolory;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Fragment {
 
 
     private Spinner spinner;
@@ -40,10 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
     //(10 x weight (kg) + 6.25 x height (cm) – 5 x age (year) + 5) x A man
     //(10 x weight (kg) + 6.25 x height (cm) – 5 x age (year) – 161) x A woman
+
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_main, container, false);
 
         itemMenuNews = (View) findViewById(R.id.news);
         itemMenuInfo = (View) findViewById(R.id.information);
@@ -79,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        
-
     }
 
     public void calculation(View view) {
