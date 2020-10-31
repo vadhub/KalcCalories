@@ -15,14 +15,13 @@ public class BottomNavigateActivity extends AppCompatActivity implements NewsLen
 
     private BottomNavigationView navigationView;
 
-    private NewsActivity newsActivity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigate);
 
-        newsActivity = new NewsActivity();
         navigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
         navigationView.setOnNavigationItemSelectedListener(navSelect);
@@ -53,6 +52,15 @@ public class BottomNavigateActivity extends AppCompatActivity implements NewsLen
 
     @Override
     public void onInput(CharSequence charSequence) {
-        newsActivity.updateText(charSequence);
+        NewsActivity newsActivity = new NewsActivity();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("title", (String) charSequence);
+
+
+        newsActivity.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, newsActivity).commit();
+
     }
 }

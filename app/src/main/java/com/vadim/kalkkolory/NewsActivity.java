@@ -24,6 +24,8 @@ public class NewsActivity extends Fragment {
     private TextView description;
     private TextView title;
 
+    private String titleText;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,17 +35,16 @@ public class NewsActivity extends Fragment {
         description = (TextView) v.findViewById(R.id.descriptionNews);
         mainimg = (ImageView) v.findViewById(R.id.app_bar_image);
 
+        Bundle bundle = getArguments();
+
+        titleText = bundle.get("title").toString();
+
+        title.setText(titleText);
+
 //        Picasso.get().load(urlToImg).error(R.drawable.not_found).into(mainimg);
 //        description.setText(getDescription);
 
         return v;
-    }
-
-    public void updateText(CharSequence newText){
-        if(newText!=null){
-            title.setText(newText);
-        }
-
     }
 
 }

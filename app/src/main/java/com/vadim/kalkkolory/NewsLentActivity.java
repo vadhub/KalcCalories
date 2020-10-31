@@ -111,7 +111,6 @@ public class NewsLentActivity extends Fragment {
 
                 Article article = articles.get(position);
                 CharSequence input =  article.getTitle();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
                 listener.onInput(input);
 
 //                intent.putExtra("url", article.getUrl());
