@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -41,6 +42,7 @@ public class BottomNavigateActivity extends AppCompatActivity implements NewsLen
                     break;
                 case R.id.news:
                     fragment = new NewsLentActivity();
+
                     break;
             }
 
@@ -51,7 +53,6 @@ public class BottomNavigateActivity extends AppCompatActivity implements NewsLen
 
     @Override
     public void onInput(CharSequence charSequence) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, newsActivity).commit();
         newsActivity.updateText(charSequence);
     }
 }

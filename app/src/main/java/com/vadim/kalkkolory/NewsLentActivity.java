@@ -38,6 +38,7 @@ public class NewsLentActivity extends Fragment {
     private String country;
 
     private FragmentNewsLentListener listener;
+    private Fragment fragment;
 
 
     private static final String URL = "http://newsapi.org/";
@@ -51,6 +52,8 @@ public class NewsLentActivity extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
 
         layoutManager = new LinearLayoutManager(getContext());
+
+        fragment = new NewsActivity();
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -66,7 +69,7 @@ public class NewsLentActivity extends Fragment {
 
 
 
-    private void getPosts(){
+    public void getPosts(){
         Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(URL).build();
         JsonPlaceHolderAPI inter= retrofit.create(JsonPlaceHolderAPI.class);
         Call<News> call = inter.geNews(country, category, apiKey);
@@ -108,7 +111,9 @@ public class NewsLentActivity extends Fragment {
 
                 Article article = articles.get(position);
                 CharSequence input =  article.getTitle();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
                 listener.onInput(input);
+
 //                intent.putExtra("url", article.getUrl());
 //                intent.putExtra("urtImg", article.getUrlToImage());
 //                intent.putExtra("title",);
