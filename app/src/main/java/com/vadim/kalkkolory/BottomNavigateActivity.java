@@ -56,8 +56,8 @@ public class BottomNavigateActivity extends AppCompatActivity implements NewsLen
 
         Bundle bundle = new Bundle();
         bundle.putString("title", (String) charSequence);
-        bundle.putString("description", (String) charSequence);
-        bundle.putString("urlImg", (String) charSequence);
+        bundle.putString("description", (String) description);
+        bundle.putString("urlImg", (String) urlImg);
 
 
         newsActivity.setArguments(bundle);
