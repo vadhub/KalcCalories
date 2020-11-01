@@ -26,17 +26,30 @@
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img"
-                app:layout_collapseMode="parallax" />
+                app:layout_collapseMode="parallax"
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_shadow">
+
+                </View>
+            </FrameLayout>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginBottom="20dp"
 
-                android:gravity="bottom|left"
+                android:layout_gravity="bottom"
                 android:text="@string/title_appbar"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:textStyle="bold"></TextView>
 

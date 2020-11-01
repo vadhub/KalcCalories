@@ -41,8 +41,9 @@ public class BottomNavigateActivity extends AppCompatActivity implements NewsLen
                     break;
                 case R.id.news:
                     fragment = new NewsLentActivity();
-
                     break;
+                case R.id.information:
+                    fragment = new Informer();
             }
 
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
