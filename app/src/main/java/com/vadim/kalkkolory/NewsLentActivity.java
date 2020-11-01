@@ -101,7 +101,7 @@ public class NewsLentActivity extends Fragment {
     }
 
     interface FragmentNewsLentListener{
-        void onInput(CharSequence charSequence);
+        void onInput(CharSequence title, CharSequence description, CharSequence urlImg);
     }
 
     private void initListener(){
@@ -110,8 +110,11 @@ public class NewsLentActivity extends Fragment {
             public void onClickItem(View view, int position) {
 
                 Article article = articles.get(position);
-                CharSequence input =  article.getTitle();
-                listener.onInput(input);
+                CharSequence title =  article.getTitle();
+                CharSequence description = article.getDescription();
+                CharSequence url = article.getUrlToImage();
+                listener.onInput(title, description, url);
+
 
 //                intent.putExtra("url", article.getUrl());
 //                intent.putExtra("urtImg", article.getUrlToImage());

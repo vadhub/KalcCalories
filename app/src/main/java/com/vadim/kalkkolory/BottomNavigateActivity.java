@@ -51,11 +51,13 @@ public class BottomNavigateActivity extends AppCompatActivity implements NewsLen
     };
 
     @Override
-    public void onInput(CharSequence charSequence) {
+    public void onInput(CharSequence charSequence, CharSequence description, CharSequence urlImg) {
         NewsActivity newsActivity = new NewsActivity();
 
         Bundle bundle = new Bundle();
         bundle.putString("title", (String) charSequence);
+        bundle.putString("description", (String) charSequence);
+        bundle.putString("urlImg", (String) charSequence);
 
 
         newsActivity.setArguments(bundle);

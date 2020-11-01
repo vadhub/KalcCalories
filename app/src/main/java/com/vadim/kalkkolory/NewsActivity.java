@@ -25,6 +25,8 @@ public class NewsActivity extends Fragment {
     private TextView title;
 
     private String titleText;
+    private String descriptionText;
+    private String urlImg;
 
     @Nullable
     @Override
@@ -38,11 +40,13 @@ public class NewsActivity extends Fragment {
         Bundle bundle = getArguments();
 
         titleText = bundle.get("title").toString();
+        descriptionText = bundle.get("description").toString();
+        urlImg = bundle.get("urlImg").toString();
 
         title.setText(titleText);
 
-//        Picasso.get().load(urlToImg).error(R.drawable.not_found).into(mainimg);
-//        description.setText(getDescription);
+        Picasso.get().load(urlImg).error(R.drawable.not_found).into(mainimg);
+        description.setText(descriptionText);
 
         return v;
     }
