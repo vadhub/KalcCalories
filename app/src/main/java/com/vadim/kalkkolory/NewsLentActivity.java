@@ -67,8 +67,6 @@ public class NewsLentActivity extends Fragment {
         return v;
     }
 
-
-
     public void getPosts(){
         Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(URL).build();
         JsonPlaceHolderAPI inter= retrofit.create(JsonPlaceHolderAPI.class);
@@ -100,10 +98,6 @@ public class NewsLentActivity extends Fragment {
         });
     }
 
-    interface FragmentNewsLentListener{
-        void onInput(CharSequence title, CharSequence description, CharSequence urlImg);
-    }
-
     private void initListener(){
         adapter.setOnItemClickListenerNews(new Adapter.OnItemClickListenerNews() {
             @Override
@@ -112,8 +106,9 @@ public class NewsLentActivity extends Fragment {
                 Article article = articles.get(position);
                 CharSequence title =  article.getTitle();
                 CharSequence description = article.getDescription();
-                CharSequence url = article.getUrlToImage();
-                listener.onInput(title, description, url);
+                CharSequence urlimg = article.getUrlToImage();
+                CharSequence url = article.getUrl();
+                listener.onInput(title, description, urlimg, url);
 
 
 //                intent.putExtra("url", article.getUrl());

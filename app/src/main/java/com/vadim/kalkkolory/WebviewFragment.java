@@ -7,11 +7,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
-public class webviewFragment extends Fragment {
+public class WebviewFragment extends Fragment {
+
+    private WebView webView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_webview, container, false);
+        View v =inflater.inflate(R.layout.fragment_webview, container, false);
+        webView = (WebView) v.findViewById(R.id.webview);
+
+        return v;
     }
 }

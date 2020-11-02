@@ -27,6 +27,11 @@ public class NewsActivity extends Fragment {
     private String titleText;
     private String descriptionText;
     private String urlImg;
+    private String url;
+
+    private NewsActivityListener listener;
+
+
 
     @Nullable
     @Override
@@ -42,6 +47,7 @@ public class NewsActivity extends Fragment {
         titleText = bundle.get("title").toString();
         descriptionText = bundle.get("description").toString();
         urlImg = bundle.get("urlImg").toString();
+        url = bundle.get("url").toString();
 
         title.setText(titleText);
 

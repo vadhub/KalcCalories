@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class BottomNavigateActivity extends AppCompatActivity implements NewsLentActivity.FragmentNewsLentListener {
+public class BottomNavigateActivity extends AppCompatActivity implements FragmentNewsLentListener {
 
     private BottomNavigationView navigationView;
 
@@ -52,13 +52,14 @@ public class BottomNavigateActivity extends AppCompatActivity implements NewsLen
     };
 
     @Override
-    public void onInput(CharSequence charSequence, CharSequence description, CharSequence urlImg) {
+    public void onInput(CharSequence charSequence, CharSequence description, CharSequence urlImg, CharSequence url) {
         NewsActivity newsActivity = new NewsActivity();
 
         Bundle bundle = new Bundle();
         bundle.putString("title", (String) charSequence);
         bundle.putString("description", (String) description);
         bundle.putString("urlImg", (String) urlImg);
+        bundle.putString("url", (String) url);
 
 
         newsActivity.setArguments(bundle);
