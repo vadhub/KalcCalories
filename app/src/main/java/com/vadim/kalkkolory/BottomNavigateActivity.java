@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class BottomNavigateActivity extends AppCompatActivity implements FragmentNewsLentListener {
+public class BottomNavigateActivity extends AppCompatActivity implements FragmentNewsLentListener, NewsActivityListener{
 
     private BottomNavigationView navigationView;
 
@@ -65,6 +65,19 @@ public class BottomNavigateActivity extends AppCompatActivity implements Fragmen
         newsActivity.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, newsActivity).commit();
+
+    }
+
+    @Override
+    public void onInputUrl(CharSequence url) {
+        WebviewFragment webviewFragment = new WebviewFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("url_link",(String) url);
+
+        webviewFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, webviewFragment).commit();
 
     }
 }

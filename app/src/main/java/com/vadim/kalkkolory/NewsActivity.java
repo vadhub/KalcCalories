@@ -2,12 +2,10 @@ package com.vadim.kalkkolory;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
+import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.squareup.picasso.Picasso;
 
 public class NewsActivity extends Fragment {
@@ -31,7 +28,7 @@ public class NewsActivity extends Fragment {
 
     private NewsActivityListener listener;
 
-
+    private TextView link;
 
     @Nullable
     @Override
@@ -41,6 +38,9 @@ public class NewsActivity extends Fragment {
         title = (TextView) v.findViewById(R.id.textTitle);
         description = (TextView) v.findViewById(R.id.descriptionNews);
         mainimg = (ImageView) v.findViewById(R.id.app_bar_image);
+        link = (TextView) v.findViewById(R.id.link);
+
+        link.setPaintFlags(link.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
 
         Bundle bundle = getArguments();
 
@@ -50,11 +50,36 @@ public class NewsActivity extends Fragment {
         url = bundle.get("url").toString();
 
         title.setText(titleText);
+        link.setText(url);
 
         Picasso.get().load(urlImg).error(R.drawable.not_found).into(mainimg);
         description.setText(descriptionText);
 
+        link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onInputUrl(url);
+            }
+        });
+
         return v;
     }
 
+
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(listener instanceof NewsActivityListener){
+            listener = (NewsActivityListener) context;
+        }else{
+            throw new RuntimeException(context.toString() + " must implement NewsActivity");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
 }

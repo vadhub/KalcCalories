@@ -74,7 +74,7 @@
 
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".NewsActivity">
@@ -91,10 +91,25 @@
                 android:textSize="20dp"
                 app:layout_anchorGravity="top|center"
                 tools:ignore="MissingConstraints">
+            </TextView>
+
+            <TextView
+                android:id="@+id/link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descriptionNews"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="4dp"
+                android:padding="10dp"
+                android:text="link"
+                android:textColor="@color/design_default_color_on_primary"
+                android:textSize="20dp"
+                app:layout_anchorGravity="bottom|center"
+                tools:ignore="MissingConstraints">
 
             </TextView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
 

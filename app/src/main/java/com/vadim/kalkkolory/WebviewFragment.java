@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class WebviewFragment extends Fragment {
 
@@ -17,6 +18,15 @@ public class WebviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.fragment_webview, container, false);
         webView = (WebView) v.findViewById(R.id.webview);
+
+        Bundle bundle = getArguments();
+
+        String url = bundle.get("url_link").toString();
+
+        if(url!=null){
+            webView.setWebViewClient(new WebViewClient());
+            webView.loadUrl(url);
+        }
 
         return v;
     }
