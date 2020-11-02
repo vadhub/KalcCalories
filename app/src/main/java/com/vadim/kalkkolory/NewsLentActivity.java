@@ -38,8 +38,6 @@ public class NewsLentActivity extends Fragment {
     private String country;
 
     private FragmentNewsLentListener listener;
-    private Fragment fragment;
-
 
     private static final String URL = "http://newsapi.org/";
 
@@ -48,12 +46,9 @@ public class NewsLentActivity extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_news_lent, container, false);
 
-
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
 
         layoutManager = new LinearLayoutManager(getContext());
-
-        fragment = new NewsActivity();
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

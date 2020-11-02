@@ -50,7 +50,7 @@ public class NewsActivity extends Fragment {
         url = bundle.get("url").toString();
 
         title.setText(titleText);
-        link.setText(url);
+        link.setText("link");
 
         Picasso.get().load(urlImg).error(R.drawable.not_found).into(mainimg);
         description.setText(descriptionText);
@@ -65,12 +65,10 @@ public class NewsActivity extends Fragment {
         return v;
     }
 
-
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if(listener instanceof NewsActivityListener){
+        if(context instanceof NewsActivityListener){
             listener = (NewsActivityListener) context;
         }else{
             throw new RuntimeException(context.toString() + " must implement NewsActivity");
