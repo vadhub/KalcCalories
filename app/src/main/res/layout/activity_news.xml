@@ -45,6 +45,14 @@
                 </View>
             </FrameLayout>
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sendDate"
+                android:layout_width="54dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+
+                android:background="@android:drawable/ic_menu_send"></androidx.appcompat.widget.AppCompatButton>
+
 
             <TextView
                 android:id="@+id/textTitle"

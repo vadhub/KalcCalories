@@ -5,11 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ public class NewsActivity extends Fragment {
     private String url;
 
     private NewsActivityListener listener;
+    private Button btnsend;
 
     private TextView link;
 
@@ -42,6 +45,8 @@ public class NewsActivity extends Fragment {
 
         link.setPaintFlags(link.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
 
+        btnsend = (Button) v.findViewById(R.id.sendDate);
+
         Bundle bundle = getArguments();
 
         titleText = bundle.get("title").toString();
@@ -54,6 +59,16 @@ public class NewsActivity extends Fragment {
 
         Picasso.get().load(urlImg).error(R.drawable.not_found).into(mainimg);
         description.setText(descriptionText);
+
+        btnsend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, url);
+                startActivity(intent);
+            }
+        });
 
         link.setOnClickListener(new View.OnClickListener() {
             @Override
