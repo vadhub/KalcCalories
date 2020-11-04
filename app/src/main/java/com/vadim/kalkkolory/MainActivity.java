@@ -33,6 +33,8 @@ public class MainActivity extends Fragment {
     private EditText weightTxt;
     private EditText ageTxt;
     private TextView resultTxt;
+    private Button btnCalk;
+    private RadioButton radioButtonM, radioButtonW;
 
     private static final int CONST_W = 10;
     private static final double CONST_H = 6.25;
@@ -58,12 +60,20 @@ public class MainActivity extends Fragment {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        btnCalk = (Button) v.findViewById(R.id.btnCalc);
+
+        btnCalk.setOnClickListener(listener);
+
         heightTxt = (EditText) v.findViewById(R.id.editTextHeight);
         weightTxt = (EditText) v.findViewById(R.id.editTextWeight);
         ageTxt = (EditText) v.findViewById(R.id.editTextAge);
 
         resultTxt = (TextView) v.findViewById(R.id.textResult);
 
+        radioButtonM = (RadioButton) v.findViewById(R.id.radioM);
+        radioButtonW = (RadioButton) v.findViewById(R.id.radioW);
+
+        radioButtonW.setOnClickListener(listenerChange);
 
         spinner = (Spinner) v.findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
@@ -84,6 +94,20 @@ public class MainActivity extends Fragment {
         });
         return v;
     }
+
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            calculation(v);
+        }
+    };
+
+    private View.OnClickListener listenerChange = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            checkSelect(v);
+        }
+    };
 
     public void calculation(View view) {
 
