@@ -45,15 +45,6 @@
                 </View>
             </FrameLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/sendDate"
-                android:layout_width="54dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-
-                android:background="@android:drawable/ic_menu_send"></androidx.appcompat.widget.AppCompatButton>
-
-
             <TextView
                 android:id="@+id/textTitle"
                 android:layout_width="match_parent"
@@ -70,7 +61,13 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent"></androidx.appcompat.widget.Toolbar>
+                android:layout_width="match_parent">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/sendDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:drawable/ic_menu_send"></androidx.appcompat.widget.AppCompatImageView>
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
