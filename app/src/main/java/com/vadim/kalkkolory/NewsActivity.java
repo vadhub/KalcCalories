@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,7 +28,7 @@ public class NewsActivity extends Fragment {
     private String url;
 
     private NewsActivityListener listener;
-    private Button btnsend;
+    private ImageView btnsend;
 
     private TextView link;
 
@@ -45,7 +44,7 @@ public class NewsActivity extends Fragment {
 
         link.setPaintFlags(link.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
 
-        btnsend = (Button) v.findViewById(R.id.sendDate);
+        btnsend = (ImageView) v.findViewById(R.id.sendDate);
 
         Bundle bundle = getArguments();
 
