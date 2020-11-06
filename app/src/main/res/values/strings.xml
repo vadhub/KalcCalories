@@ -7,7 +7,7 @@ The Mifflin-Saint Geor formula, developed by a group of American dietitians unde
 
     You just need to enter your age, height and weight, as well as mark your gender and level of physical activity. Remember that this formula is only relevant for people between the ages of 13 and 80</string>
     <string name="api_key">514fbafd2e864aa99c6c034edfee8799</string>
-    <string name="country">us</string>
+    <string name="country" translatable="false">us</string>
     <string name="category">sports</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
