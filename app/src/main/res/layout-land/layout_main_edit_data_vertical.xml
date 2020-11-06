@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="2dp"
+        app:layout_constraintHorizontal_weight="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +25,9 @@
 
         <EditText
             android:id="@+id/editTextHeight"
-            android:layout_width="68dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="3"
             android:inputType="number" />
 
         <TextView
@@ -37,9 +38,9 @@
 
         <EditText
             android:id="@+id/editTextWeight"
-            android:layout_width="87dp"
-            android:layout_height="49dp"
-            android:ems="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="3"
             android:inputType="number" />
 
         <TextView
@@ -50,9 +51,9 @@
 
         <EditText
             android:id="@+id/editTextAge"
-            android:layout_width="66dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:ems="3"
             android:inputType="number" />
 
         <TextView
@@ -63,8 +64,8 @@
 
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="86dp"
-            android:layout_height="43dp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
