@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">KalkKolory</string>
     <string name="title_appbar"> Mifflin - San Geor formula</string>
     <string name="lorem">The Mifflin-Saint Geora Formula is one of the most recent calorie formulas for optimal weight loss or maintenance. It was introduced in 2005 and is increasingly replacing the classic Harris-Benedict formula.
@@ -6,9 +6,8 @@
 The Mifflin-Saint Geor formula, developed by a group of American dietitians under the leadership of Mifflin and Saint Geor doctors, exists in two versions - simplified and modified and gives the required amount of kilocalories (kcal) per day for each individual person.
 
     You just need to enter your age, height and weight, as well as mark your gender and level of physical activity. Remember that this formula is only relevant for people between the ages of 13 and 80</string>
-    <string name="api_key">514fbafd2e864aa99c6c034edfee8799</string>
-    <string name="country" translatable="false">us</string>
-    <string name="category">sports</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="country">us</string>
+    <string name="category" translatable="false">sports</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="api_key" translatable="false">514fbafd2e864aa99c6c034edfee8799</string>
 </resources>

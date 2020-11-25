@@ -7,9 +7,6 @@
 Формула Mifflin-Saint Geor, разработанная группой американских диетологов под руководством врачей Mifflin и Saint Geor, существует в двух версиях - упрощенной и модифицированной и дает необходимое количество килокалорий (ккал) в день для каждого отдельного человека.
 
     Вам просто нужно ввести свой возраст, рост и вес, а также указать свой пол и уровень физической активности. Помните, что эта формула актуальна только для людей в возрасте от 13 до 80 лет.</string>
-    <string name="api_key">514fbafd2e864aa99c6c034edfee8799</string>
-    <strng name="country">ru</strng>
-    <string name="category">sports</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="country">ru</string>
+
 </resources>
