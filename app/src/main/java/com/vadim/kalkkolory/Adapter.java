@@ -57,10 +57,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         if(articles.get(position).getDescription()!=null&&articles.get(position).getTitle()!=null){
             holder.title.setText(articles.get(position).getTitle());
             holder.description.setText(articles.get(position).getDescription());
-        }else if(articles.get(position).getTitle()!=null){
+        }else if(articles.get(position).getTitle()!=null&&articles.get(position).getDescription()==null){
             holder.title.setText(articles.get(position).getTitle());
-        }else {
+            holder.description.setText("");
+        }else if(articles.get(position).getTitle()==null&&articles.get(position).getDescription()!=null){
             holder.description.setText(articles.get(position).getDescription());
+            holder.title.setText("");
+        }else{
+            holder.title.setText("");
+            holder.description.setText("");
         }
 
     }
