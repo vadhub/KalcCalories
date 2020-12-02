@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">KalkKolory</string>
     <string name="title_appbar"> Mifflin - San Geor formula</string>
     <string name="lorem">The Mifflin-Saint Geora Formula is one of the most recent calorie formulas for optimal weight loss or maintenance. It was introduced in 2005 and is increasingly replacing the classic Harris-Benedict formula.
@@ -10,4 +10,11 @@ The Mifflin-Saint Geor formula, developed by a group of American dietitians unde
     <string name="category" translatable="false">sports</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="api_key" translatable="false">514fbafd2e864aa99c6c034edfee8799</string>
+    <string name="itemCulc">calculate</string>
+    <string name="itemNews">news</string>
+    <string name="itemInfo">info</string>
+    <string name="height">Your Height</string>
+    <string name="weight">Your Weight</string>
+    <string name="age">Your Age</string>
+    <string name="physical_activity">Physical Activity</string>
 </resources>

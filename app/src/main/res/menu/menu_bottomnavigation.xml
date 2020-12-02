@@ -3,16 +3,16 @@
     <item
         android:id="@+id/calculate"
         android:icon="@android:drawable/ic_menu_edit"
-        android:title="calculate">
+        android:title="@string/itemCulc">
     </item>
 
     <item
         android:id="@+id/news"
         android:icon="@android:drawable/ic_input_get"
-        android:title="news"></item>
+        android:title="@string/itemNews"></item>
 
     <item
         android:id="@+id/information"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="info"></item>
+        android:title="@string/itemInfo"></item>
 </menu>

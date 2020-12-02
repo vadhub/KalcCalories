@@ -8,5 +8,12 @@
 
     Вам просто нужно ввести свой возраст, рост и вес, а также указать свой пол и уровень физической активности. Помните, что эта формула актуальна только для людей в возрасте от 13 до 80 лет.</string>
     <string name="country">ru</string>
+    <string name="itemCulc">Калории</string>
+    <string name="itemNews">Новости</string>
+    <string name="itemInfo">Инфо</string>
+    <string name="height">Ваш рост</string>
+    <string name="weight">Вес</string>
+    <string name="age">Возраст</string>
+    <string name="physical_activity">Физ. активность</string>
 
 </resources>

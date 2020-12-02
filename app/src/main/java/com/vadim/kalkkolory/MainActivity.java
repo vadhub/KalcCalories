@@ -1,9 +1,5 @@
 package com.vadim.kalkkolory;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +12,10 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import static android.R.layout.simple_spinner_item;
 
@@ -77,7 +77,7 @@ public class MainActivity extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(v.getContext(), "Position = " + spinnerElements[position], Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "Position = " + spinnerElements[position], Toast.LENGTH_SHORT).show();
                 positionElemet = position;
             }
 
