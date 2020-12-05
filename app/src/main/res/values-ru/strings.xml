@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Калькулятор каллорий</string>
+    <string name="app_name">Калькулятор калорий</string>
     <string name="title_appbar"> Миффлин - Сан Джерж формула</string>
     <string name="lorem">Формула Mifflin-Saint Geora - одна из самых последних формул калорий для оптимального похудания или поддержания веса. Он был введен в 2005 году и все чаще заменяет классическую формулу Харриса-Бенедикта.
 
@@ -15,5 +15,13 @@
     <string name="weight">Вес</string>
     <string name="age">Возраст</string>
     <string name="physical_activity">Физ. активность</string>
+    <string-array name="phis_act">
+        <item>Минимальная</item>
+        <item>Умеренная</item>
+        <item>Высокая</item>
+    </string-array>
+    <string name="base_formul">Основано на  формуле Миффлин - Сан Джерж</string>
+    <string name="gender">Пол</string>
+    <string name="calculate">Вычислить</string>
 
 </resources>

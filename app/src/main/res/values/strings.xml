@@ -17,4 +17,14 @@ The Mifflin-Saint Geor formula, developed by a group of American dietitians unde
     <string name="weight">Your Weight</string>
     <string name="age">Your Age</string>
     <string name="physical_activity">Physical Activity</string>
+    <string-array name="phis_act">
+        <item>Minimum activity</item>
+        <item>Average activity</item>
+        <item>High activity</item>
+    </string-array>
+
+    <string name="base_formul">Based on the Mifflin - San Geor formula</string>
+    <string name="gender">Gender</string>
+    <string name="calculate">calculate</string>
+
 </resources>

@@ -49,7 +49,7 @@ public class MainActivity extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.activity_main, container, false);
 
-        String[] spinnerElements = {"Minimum activity", "Average activity", "High activity"};
+        String[] spinnerElements = getActivity().getResources().getStringArray(R.array.phis_act);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext() ,simple_spinner_item, spinnerElements);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
