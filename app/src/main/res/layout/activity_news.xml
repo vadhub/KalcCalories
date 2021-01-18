@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:padding="10dp"
-                android:text="g"
+                android:text=""
                 android:textColor="@color/white"
                 android:lineSpacingExtra="4dp"
                 android:textSize="20dp"
